@@ -99,9 +99,13 @@ app.get('/editeventos/:id', async (req, res) => {
   evento = evento.dataValues;
   res.render('editeventos', {evento} );
 });
-app.post('/editeventos/:ideventos', async (req, res) => {
+app.post('/editeventos/:id', async (req, res) => {
   const { nome,  endereco } = req.body;
-  await Eventos.update({ nomeeventos, endereco}, { where: { id: req.params.id } });
+  await Eventos.update({ nome, endereco}, { where: { id: req.params.id } });
+  res.redirect('/listaeventos');
+});
+app.get('/deleteeventos/:id', async (req, res) => {
+  await Eventos.destroy({ where: { id: req.params.id } });
   res.redirect('/listaeventos');
 });
 
