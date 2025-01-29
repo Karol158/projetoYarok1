@@ -1,0 +1,11 @@
+{{#each eventos}}
+    <tr>
+      <td>{{this.nome}}</td>
+      <td>{{this.endereco}}</td>
+      <td>{{this.ideventos}}</td>
+      <td>
+        <a href="/editeventos/{{this.id}}">Editar</a>
+        <a href="/delete/{{this.id}}" onclick="return confirm('Tem certeza?')">Excluir</a>
+      </td>
+    </tr>
+    {{/each}}
